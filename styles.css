@@ -42,61 +42,186 @@ table {
 	border-spacing: 0;
 }
 
-
-
-
-
-.wrapper {
-    height: 99.6vh;
-    width: 99vw;
-    background-color: rgb(87, 87, 87);
-    border: 2px solid red;
-    display: grid;
-    grid-template: 1fr 2fr 1fr / 100%
+:root {
+    --sandtan: #e1b382;
+    --sandtanshadow: #c89666;
+    --nightblue: #2d545e;
+    --nightblueshadow: #12343b;
+    font-family: "Lora";
+}
+::-webkit-scrollbar {
+    height: 4px;              /* height of horizontal scrollbar ← You're missing this */
+    border: 1px solid var(--sandtanshadow);
+}
+::-webkit-scrollbar-track {
+    border-radius: 0;
+    background: var(--sandtanshadow);
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background: rgb(255, 255, 255);
 }
 
-.logocontainer {
-    border: 2px solid green;
-    background-color: lightgreen;
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.navBar {
+    height: 8vh;
+    background-color: var(--nightblueshadow);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 7vw;
+}
+    div.logo {
+        color: var(--sandtan);
+        font-size: 36px;
+    }
+
+.formBar {
+    background-color: var(--nightblue);
+    height: 24vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-    .logo {
-        border: 2px solid black;
-        background-color: white;
-        width: 40vw;
-        height: 10vw;
+    form {
+        border-radius: 6px;
+        display: grid;
+        grid-template-rows: 4vh 12vh 4vh;
+        grid-template-columns: 20vw 20vw 20vw 20vw;
     }
-
-.bookgridcontainer {
-    border: 2px solid purple;
-    background-color: lightpink;
-    display: grid;
-    grid-auto-columns: repeat(auto-fit, 220px);
-    grid-auto-flow: column;
-    overflow-x: scroll;
-    align-items: center;
-}
-    .book {
-        border: 2px solid rgb(82, 82, 82);
-        background-color: rgb(148, 148, 148);
-
-        width: 250px;
-        height: 350px;
-        margin: 20px;
-        padding: 20px;
+        .addBookLogo {
+            grid-area: 1 / 1 / 2 / 5;
+            margin: auto;
+            font-size: 20px;
+            color: white;
+        }
+        .authorFormSection {
+            grid-area: 2 / 1 / 3 / 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            margin: 20px;
+        }.titleFormSection {
+            grid-area: 2 / 2 / 3 / 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            margin: 20px;
+        }
+        .pagesFormSection {
+            grid-area: 2 / 3 / 3 / 4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            margin: 20px;
+        }.readFormSection {
+            grid-area: 2 / 4 / 3 / 5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            margin: 20px;
+        }
+        label{
+            color: white;
+        }
+        input[type="text"] {
+            border-radius: 14px;
+            border: 0;
+            height: 25px;
+        }
+        .btnAdd {
+            grid-area: 3 / 1 / 4 / 5;
+            width: 12vw;
+            height: 3.8vh;
+            justify-self: center;
+            align-self: center;
+            border-radius: 16px;
+            border: none;
+        }
+    
+    .bookDisplayBar {
+        height: 66vh;
+        background-color: var(--sandtan);
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-
-.uicontainer {
-    border: 2px solid orange;
-    background-color: antiquewhite;
-    display: grid;
-}
-
-
-
-
+        .bookDisplay {
+            width: 94vw;
+            display: grid;
+            overflow-x: auto;
+            grid-auto-flow: column;
+            grid-template-columns: repeat(auto-fill, 340px);
+            height: 460px;
+        }
+            .bookCard {
+                background-color: #c89666;
+                box-shadow: 5px 5px var(--nightblueshadow);
+                margin: 20px;
+                height: 400px;
+                width: 280px;
+                display: grid;
+                grid-template-rows: repeat(5, 80px);
+            }
+                .authorSection,
+                .titleSection,
+                .pagesSection,
+                .readSection,
+                .controlSection {
+                    align-self: center;
+                    justify-self: center;
+                    display: flex;
+                    height: 50px;
+                    width: 240px;
+                }
+                    .bookCard .lblAuthor,
+                    .bookCard .lblTitle,
+                    .bookCard .lblPages,
+                    .bookCard .lblRead {
+                        color: var(--nightblueshadow);
+                        font-style:italic;
+                        align-self: center;
+                        text-align: right;
+                        width: 56px;
+                    }
+                    .bookCard .fldAuthor,
+                    .bookCard .fldTitle,
+                    .bookCard .fldPages,
+                    .bookCard .fldRead {
+                        color: var(--nightblueshadow);
+                        align-self: center;
+                        justify-self: left;
+                        margin-left: 20px;
+                        font-size: 24px;
+                    }
+                    .controlSection {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                        .bookCard .btnRead,
+                        .bookCard .btnUnread,
+                        .bookCard .btnRemove{
+                            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+                            border: none;
+                            width: 75px;
+                            height: 30px;
+                            color: var(--nightblueshadow);
+                            font-family: 'Fira Code';
+                            font-weight: 600;
+                            letter-spacing: 1.2px;
+                            background-color: rgb(238, 238, 238);
+                        }
+                        .bookCard .btnRemove {
+                            color: rgb(163, 0, 0);
+                        }
+        
 
 
 

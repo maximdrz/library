@@ -6,30 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <script src="./script.js" defer></script>
 </head>
 <body>
     
     <div class="wrapper">
-        <div class="logocontainer">
-            <div class="logo"></div>
+        <div class="navBar">
+            <div class="logo">Library</div>
+        </div>
+        <div class="formBar"> <!--Flexbox to center the form-->
+            <form> <!--The form to create a book-->
+                <label class="addBookLogo">Add a book:</label>
+                <div class="authorFormSection">
+                    <label for="author">Author:</label>
+                    <input type="text" id="author" name="author">
+                </div>
+                <div class="titleFormSection">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title">
+                </div>
+                <div class="pagesFormSection">
+                    <label for="pages">Amount of pages:</label>
+                    <input type="text" id="pages" name="pages">
+                </div>
+                <div class="readFormSection">
+                    <label>Done reading:</label>
+                    <div class="yes">
+                        <label for="read">Yes</label>
+                        <input type="radio" id="read" name="read" value="true">
+                    </div>
+                    <div class="no">
+                        <label for="notread" style="padding-right: 5px">No</label>
+                        <input type="radio" id="notread" name="read" value="false">
+                    </div>
+                </div>
+                <button type="submit" class="btnAdd">Add book</button>
+            </form>
+        </div>
+        <div class="bookDisplayBar"> <!--Flexbox to center book disp-->
+            <div class="bookDisplay"> <!--put bookCards here-->
+
+                
+
+            </div>
         </div>
 
-        <div class="bookgridcontainer">
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-        </div>
-
-        <div class="uicontainer"></div>
+        <div class="footer">Copyright Maxim D</div>
     </div>
 
-    <script>
-
-    </script>
 </body>
 </html>
